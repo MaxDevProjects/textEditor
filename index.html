@@ -29,7 +29,7 @@
 <body>
     <div class="container-fluid pb-4">
         <div class="row">
-            <div class="header bg-dark col-lg-12 shadow p-2">
+            <div class="header col-lg-12 shadow p-2" style="background : #00bfa5;">
                 <h1 class="lead display-5 text-center text-light">Motivation letter editor in vuejs</h1>
             </div>
         </div>
@@ -37,42 +37,50 @@
             
     <div id="app">
         <div class="container">
-            <form id="editor" >
+            <div class="form-check float-right shadow rounded px-2">
+                <label style="font-size: 0.5em;">hidden form</label>
+                <input type="checkbox" id="checkbox" v-model="show" title="hidden form">
+            </div>
+            <form id="editor" v-if="show">
                 <div class="form-group row"  >
-                    <input type="text" class="form-control" id="titre" v-model="title">
+                    <input type="text" class="form-control shadow" id="titre" v-model="title">
                 </div>
                 <div class="form-group row">
-                    <textarea name="message" id="yourAdress" class="form-control col-sm-6" v-model="yourAdress"></textarea>
-                    <textarea name="message" id="theirAdress" class="form-control col-sm-6" v-model="theirAdress"></textarea>
+                    <textarea  class="form-control col-sm-6 shadow" v-model="yourAdress"></textarea>
+                    <textarea  class="form-control col-sm-6 shadow text-right" v-model="theirAdress"></textarea>
                 </div>
                 <div class="form-group row">
-                    <input type="text" class="form-control" id="object" v-model="obj">
+                    <input type="text" class="form-control shadow" id="object" v-model="obj">
                 </div>
                 <div class="form-group row">
-                    <par-item class="form-control my-2" v-for="(item) in paragraphs" v-bind:paragraph="item" v-bind:key="item.p" v-model="item.p" >
+                    <par-item class="form-control my-2 shadow" v-for="(paragraph) in paragraphs" :paragraph="paragraph" :key="paragraph.p" v-model="paragraph.text">
                     </par-item>
                 </div>
                 
                 <div id="buttons" class="row">
-                    <a class="btn text-light rounded-circle m-auto" :title="addTitle" @click="addPar" style="background: #64dd17">
-                        <i class="fas fa-plus" :title="addTitle"></i>
+                    <a class="btn text-light rounded-circle m-auto" :title="addTitle" @click="addPar" style="background: #304ffe">
+                        <i id="plus" class="fas fa-plus" :title="addTitle"></i>
                     </a>
                     <a class="btn text-light rounded-circle m-auto" :title="deleteTitle" @click="deletePar" style="background: #c51162">
-                        <i class="fas fa-minus"></i>
+                        <i id="minus" class="fas fa-minus"></i>
                     </a>
                 </div>
+                <div class="dropdown-divider mt-5"></div>
             </form>
-            
             <div class="rendered">
-                <h3 class="py-2">{{title}}</h3>
+                <h3 class="lead display-4 py-2 text-center">{{title}}</h3>
                 <div class="row">
-                    <p  class="py-2 text-left">{{yourAdress}}</p>
-                    <p  class="py-2 text-right mx-auto">{{theirAdress}}</p>
+                    <p  class="lead py-2 text-left col-sm-6">{{yourAdress}}</p>
+                    <p  class="lead py-2 text-right col-sm-6">{{theirAdress}}</p>
                 </div>
-                <p  class="py-2">{{obj}}</p>
-                <p  class="py-2">{{paragraphs.p}}</p>
+                <p  class="py-2 lead display-5">{{obj}}</p>
+                <p  class="py-2 lead display-5" v-for="(paragraph) in paragraphs">{{paragraph.text}}</p>
             </div>
         </div>
+    </div>
+
+    <div class="footer container-fluid">
+            <p class="text-center text-light p-2 m-auto">Realised in VUEJS by Maxime Martin</p>
     </div>
             
         

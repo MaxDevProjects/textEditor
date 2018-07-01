@@ -8,6 +8,7 @@ new Vue(
     {
     el : '#app',
     data: {
+        show : true,
         title : "title",
         yourAdress: "name and personal adress",
         theirAdress : "name and company adress",

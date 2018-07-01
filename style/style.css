@@ -1,6 +1,20 @@
+*{
+    box-sizing: border-box;
+}
+
+::selection{
+    background-color: #00bfa5;
+    color: rgb(243, 240, 237);
+}
+
+::-moz-selection{
+    background-color: #00bfa5;
+    color: rgb(243, 240, 237);
+}
+
 html, body, #app, .header{
     width: 100%;
-    font-family: cursive;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 1.5em;
 }
 
@@ -9,9 +23,56 @@ html, body, #app, .header{
 }
 
 h1{
-    text-shadow: 0 0 20px #0e0d0d;
+    text-shadow: 0 5px 15px #0e0d0d;
 }
 
 li{
     list-style: none;
 }
+
+.dropdown-divider{
+    border: 5px solid #00bfa5;
+    width: 100%;
+    box-shadow: 0 5px 30px #0e0d0d75;
+}
+
+.btn #plus:hover{
+    /* transition: 1s all ease ; */
+    animation: plusRot 1s ease;
+    -moz-animation: plusRot 1s ease;
+    -o-animation: plusRot 1s ease;
+    -webkit-animation: plusRot 1s ease;
+}
+
+@keyframes plusRot{
+    0%  {transform: rotate(0deg);}
+    100%{transform: rotate(180deg);}
+}
+
+.btn #minus:hover{
+    animation: minusRot 1s ease;
+    -moz-animation: minusRot 1s ease;
+    -o-animation: minusRot 1s ease;
+    -webkit-animation: minusRot 1s ease;
+}
+
+@keyframes minusRot{
+    0%  {transform: rotate(0deg);}
+    100%{transform: rotate(-180deg);}
+}
+
+.form-check{
+    background: #00b8d4;
+}
+
+.footer{
+    height: 100%;
+    background-color: #00bfa5;
+    box-shadow: 0 -2px 30px #0e0d0d79;
+}
+
+.footer p{
+    font-size: .5em;
+    text-shadow: 0 5px 15px #0e0d0d;
+}
+
