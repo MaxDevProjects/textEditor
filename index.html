@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <link rel="stylesheet" href="style/style.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    
+    
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+    crossorigin="anonymous">
+
+    
+    <title>Motivation letter editor in vuejs</title>
+</head>
+<body>
+    <div class="container-fluid pb-4">
+        <div class="row">
+            <div class="header bg-dark col-lg-12 shadow p-2">
+                <h1 class="lead display-5 text-center text-light">Motivation letter editor in vuejs</h1>
+            </div>
+        </div>
+    </div>
+            
+    <div id="app">
+        <div class="container">
+            <form id="editor" >
+                <div class="form-group row"  >
+                    <input type="text" class="form-control" id="titre" v-model="title">
+                </div>
+                <div class="form-group row">
+                    <textarea name="message" id="yourAdress" class="form-control col-sm-6" v-model="yourAdress"></textarea>
+                    <textarea name="message" id="theirAdress" class="form-control col-sm-6" v-model="theirAdress"></textarea>
+                </div>
+                <div class="form-group row">
+                    <input type="text" class="form-control" id="object" v-model="obj">
+                </div>
+                <div class="form-group row">
+                    <par-item class="form-control my-2" v-for="(item) in paragraphs" v-bind:paragraph="item" v-bind:key="item.p" v-model="item.p" >
+                    </par-item>
+                </div>
+                
+                <div id="buttons" class="row">
+                    <a class="btn text-light rounded-circle m-auto" :title="addTitle" @click="addPar" style="background: #64dd17">
+                        <i class="fas fa-plus" :title="addTitle"></i>
+                    </a>
+                    <a class="btn text-light rounded-circle m-auto" :title="deleteTitle" @click="deletePar" style="background: #c51162">
+                        <i class="fas fa-minus"></i>
+                    </a>
+                </div>
+            </form>
+            
+            <div class="rendered">
+                <h3 class="py-2">{{title}}</h3>
+                <div class="row">
+                    <p  class="py-2 text-left">{{yourAdress}}</p>
+                    <p  class="py-2 text-right mx-auto">{{theirAdress}}</p>
+                </div>
+                <p  class="py-2">{{obj}}</p>
+                <p  class="py-2">{{paragraphs.p}}</p>
+            </div>
+        </div>
+    </div>
+            
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+    <script src="js/vue.js"></script>
+</body>
+</html>
