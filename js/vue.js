@@ -9,12 +9,14 @@ new Vue(
     el : '#app',
     data: {
         show : true,
-        title : "title",
-        yourAdress: "name and personal adress",
-        theirAdress : "name and company adress",
-        obj:"object",
+        title : "Type your title",
+        yourAdress: "Type your name and personal adress",
+        theirAdress : "Type the name and company adress",
+        obj:"Object :",
+
         addTitle:"add new paragraph",
         deleteTitle:"delete a paragraph",
+        
             paragraphs:[
                 {p:0, text: "first paragraph"},
                 {p:1, text: "second paragraph"},
