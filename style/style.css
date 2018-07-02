@@ -1,3 +1,4 @@
+
 *{
     box-sizing: border-box;
 }
@@ -76,3 +77,14 @@ li{
     text-shadow: 0 5px 15px #0e0d0d;
 }
 
+html {
+  font-size: 1rem; 
+}
+
+#create-file>#create{
+    background-color: #304ffe;
+}
+
+#info-txt>.btn{
+    background-color: #c51162;
+}

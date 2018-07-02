@@ -45,3 +45,33 @@ new Vue(
 );
 
 
+
+    (function () {
+                var textFile = null,
+                    makeTextFile = function (text) {
+                        var data = new Blob([text], {type: 'text/plain' });
+
+                        if (textFile !== null) {
+        window.URL.revokeObjectURL(textFile);
+    }
+
+    textFile = window.URL.createObjectURL(data);
+
+    return textFile;
+};
+
+
+var create = document.getElementById('create'),
+textbox = document.getElementsByClassName('textbox');
+
+
+                create.addEventListener('click', function () {
+                    var link = document.getElementById('downloadlink');
+                    for (i = 0; i < textbox.length; i++) {
+                        textbox[i].style.backgroundColor = "#00bfa5";
+                        link.href = makeTextFile(textbox[i].value);
+                    }
+    link.style.display = 'block';
+}, false);
+})();
+
